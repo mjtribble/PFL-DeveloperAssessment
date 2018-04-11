@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { AuthService } from './interceptors/auth.service';
+import { AuthInterceptor } from './interceptors/auth.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { AuthService } from './interceptors/auth.service';
     NgModule,
     NgbModule
   ],
-  providers: [AppComponent, AuthService],
+  providers: [AppComponent, AuthInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
