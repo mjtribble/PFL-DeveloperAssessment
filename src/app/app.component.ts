@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -13,7 +14,7 @@ export class AppComponent {
   private apiUrl = 'https://testapi.pfl.com/products?apikey=136085';
   data: any = {};
 
-  constructor(private http: Http){
+  constructor(private http: HttpClient){
     console.log('Hello World');
     this.getOrders();
     this.getData();
