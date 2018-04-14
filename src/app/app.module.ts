@@ -9,13 +9,13 @@ import { AppComponent } from './app.component';
 import { AuthInterceptor } from './interceptors/auth.service';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { ProductListComponent } from './product-list/product-list.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppNavbarComponent,
-    ProductListComponent
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
