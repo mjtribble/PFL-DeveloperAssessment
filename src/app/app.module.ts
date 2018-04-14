@@ -10,6 +10,7 @@ import { AuthInterceptor } from './interceptors/auth.service';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ProductsComponent } from './products/products.component';
+import { ProductService } from './product.service';
 
 @NgModule({
   declarations: [
@@ -25,11 +26,12 @@ import { ProductsComponent } from './products/products.component';
     NgbModule.forRoot()
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    }
+   {
+     provide: HTTP_INTERCEPTORS,
+     useClass: AuthInterceptor,
+     multi: true
+   }
+    ProductService
   ],
   bootstrap: [AppComponent]
 })
