@@ -1,23 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 
 import {IProduct } from '../interfaces';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
+
 export class ProductsComponent implements OnInit {
 
   products: IProduct[];
 
-  constructor() { }
+  constructor(private productService : ProductService) { }
 
   ngOnInit() {
-    // this.productsObservable = this.getProducts();
+    this.getProducts();
   }
-  //
-  // getProducts(listPath): Obsesrvable<any[]>{
-  //   return this.db.list(listPath).valueChanges();
-  // }
+
+  getProducts() : void {
+    this.productService.getProducts()
+      .subscribe(products => this.products = products);
+  }
 }

@@ -11,16 +11,21 @@ import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ProductsComponent } from './products/products.component';
 import { ProductService } from './product.service';
+import { MessageService } from './message.service';
+import { MessagesComponent } from './messages/messages.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppNavbarComponent,
-    ProductsComponent
+    ProductsComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    AppRoutingModule,
     HttpClientModule,
     AngularFontAwesomeModule,
     NgbModule.forRoot()
@@ -30,8 +35,9 @@ import { ProductService } from './product.service';
      provide: HTTP_INTERCEPTORS,
      useClass: AuthInterceptor,
      multi: true
-   }
-    ProductService
+   },
+    ProductService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

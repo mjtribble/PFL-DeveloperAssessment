@@ -1,12 +1,12 @@
-<ul>
-  <!-- TODO: added product attributes -->
-    <div *ngFor="let prod of productsObservable | async">
-        <ngb-alert type="info" [dismissible]="false">
-            <h3><a href="#">{{product.title}}</a> </h3>
-            <p>{{product.description}}</p>
-            <div>
-                <a href="{{course.url}}" target="_blank" class="btn btn-danger">Go To Course</a>
-            </div>
-        </ngb-alert>
-    </div>
+<h2>Printing for Less Products</h2>
+
+<!-- List of Products Links -->
+<ul class="products">
+  <li *ngFor="let product of products">
+    <!-- <a routerLink="/detail/{{product.id}}"> -->
+      <span class="badge">{{product.id}}</span> {{product.name}}
+    <!-- </a> -->
+    <!-- <button class="delete" title="delete hero"
+    (click)="delete(hero)">x</button> -->
+  </li>
 </ul>
