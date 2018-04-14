@@ -1,7 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes } from '@angular/router';
 
-export interface IProducts {
+export interface IProduct {
     id: number;
     productID: number;
     name: string;
@@ -16,14 +16,14 @@ export interface IProducts {
 
 export interface IOrder {
     orderCustomer: ICustomer;
-    items: IProducts[];
+    items: IProduct[];
     productName: string;
     itemCost: number;
 }
 
 export interface IDeliveryOption {
     orderCustomer: ICustomer;
-    items: IProducts[];
+    items: IProduct[];
     productName: string;
     itemCost: number;
 }
