@@ -7,21 +7,30 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { AuthInterceptor } from './interceptors/auth.service';
+import { AppNavbarComponent } from './app-navbar/app-navbar.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { ProductListComponent } from './product-list/product-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppNavbarComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFontAwesomeModule,
+    NgbModule.forRoot()
   ],
-  providers: [{
+  providers: [
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }],
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,5 @@
+// open -a Google\ Chrome --args --disable-web-security --user-data-dir
+
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Response } from '@angular/http';
@@ -22,7 +24,6 @@ export class AppComponent {
 
   getData(){
     return this.http.get(this.apiUrl)
-      .map((res: Response) => res.json()) //not sure if .json needs to be here.
   }
 
   getOrders(){

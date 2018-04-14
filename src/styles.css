@@ -1,1 +1,17 @@
-@import '~bootstrap/dist/css/bootstrap.min.css';
+/* @import '~bootstrap/dist/css/bootstrap.css'; */
+@import 'scss/_myTheme.scss';
+
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+body {
+   padding-top: 80px;
+}
+
+.starter-template {
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
