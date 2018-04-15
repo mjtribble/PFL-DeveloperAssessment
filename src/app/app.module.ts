@@ -14,13 +14,15 @@ import { ProductService } from './product.service';
 import { MessageService } from './message.service';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { CustomerComponent } from './customer/customer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppNavbarComponent,
     ProductsComponent,
-    MessagesComponent
+    MessagesComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,

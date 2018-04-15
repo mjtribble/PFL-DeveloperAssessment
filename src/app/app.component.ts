@@ -10,11 +10,7 @@ export class AppComponent {
   title = 'Mini Project';
 }
 
-
-
-
-
-
+//
 // import { Component } from '@angular/core';
 // import { HttpClient } from '@angular/common/http';
 // import { Response } from '@angular/http';

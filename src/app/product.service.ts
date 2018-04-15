@@ -20,13 +20,27 @@ export class ProductService {
 
   /** GET products from the server */
   getProducts (): Observable<IProduct[]> {
-  return this.http.get<IProduct[]>(this.productsUrl)
+  return this.http.get(this.productsUrl)
     .pipe(
+      map(result => result.results.data),
       tap(products => this.log(`fetched products`)),
       catchError(this.handleError('getProducts', []))
     );
   }
 
+  // /** GET hero by id. Return `undefined` when id not found */
+  //  getHeroNo404<Data>(id: number): Observable<Hero> {
+  //    const url = `${this.heroesUrl}/?id=${id}`;
+  //    return this.http.get<Hero[]>(url)
+  //      .pipe(
+  //        map(heroes => heroes[0]), // returns a {0|1} element array
+  //        tap(h => {
+  //          const outcome = h ? `fetched` : `did not find`;
+  //          this.log(`${outcome} hero id=${id}`);
+  //        }),
+  //        catchError(this.handleError<Hero>(`getHero id=${id}`))
+  //      );
+  //  }
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> =>{
       //// TODO: send the error to remotelogging infrastructure

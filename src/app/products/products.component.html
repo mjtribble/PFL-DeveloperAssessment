@@ -3,10 +3,8 @@
 <!-- List of Products Links -->
 <ul class="products">
   <li *ngFor="let product of products">
-    <!-- <a routerLink="/detail/{{product.id}}"> -->
-      <span class="badge">{{product.id}}</span> {{product.name}}
-    <!-- </a> -->
-    <!-- <button class="delete" title="delete hero"
-    (click)="delete(hero)">x</button> -->
+    <a routerLink="/detail/{{product.id}}">
+      <button class="order" title="order product"(click)="order(product)">Order</button> {{product.name}}
+    </a>
   </li>
 </ul>
