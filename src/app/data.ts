@@ -1,104 +1,103 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes } from '@angular/router';
 
-export interface IProduct {
+export class Product {
     id: number;
     productID: number;
     name: string;
     description: string;
     imageURL: string;
     hasTemplate?: boolean;
-    quantityDefault: number;
-    shippintDefault: string;
-    deliveredPrices: IDeliveryOption[];
+    quantityDefault?: number;
+    shippingDefault?: string;
+    deliveredPrices?: DeliveryOption[];
 }
 
-export interface IOrderPayload {
+export class OrderPayload {
     orderNumber: number;
+    orderCustomer: OrderCustomerData;
+    items: OrderItemData[];
     partnerOrderReference?: string;
-    orderCustomer: IOrderCustomerData;
-    items: IOrderItemData[];
-    shipments?: IOrderShipmentData[];
-    payments?: IPayments[];
-    itemShipments?: IItemShipments[];
-    webhooks?: IWebHooks[];
-    billingVariables?: IBillingVariables[];
+    shipments?: OrderShipmentData[];
+    payments?: Payments[];
+    itemShipments?: ItemShipments[];
+    webhooks?: WebHooks[];
+    billingVariables?: BillingVariables[];
 }
 
-export interface IOrderItemData {
+export class OrderItemData {
   itemSequenceNumber: number;
   productID: number;
   quantity: number;
   itemFile: string;
-  templateData: IOrderTemplateData[];
+  templateData: OrderTemplateData[];
   itemID: number;
   productionDays?: number;
   partnerItemReference?: string;
 }
 
-export interface IOrderCustomerData {
+export class OrderCustomerData {
   id: number;
   firstName: string;
   lastName: string;
   companyName: string;
-  gender: string;
   address1: string;
-  address2?: string;
   city: string;
   state: string;
-  postalCode: number
+  postalCode: number;
   countryCode: string;
   email: string;
   phone: string;
-  orders?: IOrderPayload[];
+  orders?: OrderPayload[];
   orderTotal?: number;
+  address2?: string;
 }
 
-export interface IOrderShipmentData {
+export class OrderShipmentData {
   shipmentSequenceNumber: number;
   firstName: string;
   lastName: string;
   companyName: string;
   address1: string;
-  address2?: string;
   city: string;
   state: string;
-  postalCode: number
+  postalCode: number;
   countryCode: string;
   phone: string;
   shippingMethod: string;
-  IMBSerialNumber: number;
+  MBSerialNumber: number;
+  address2?: string;
 }
 
-export interface IPayments {
+export class Payments {
   paymentMethod: string;
   paymentID: string;
   paymentAmount: number;
 }
 
-export interface IItemShipments{
+export class ItemShipments{
   itemSequenceNumber: number;
   shipmentSequenceNumber: number;
 }
 
-export interface IWebHooks{
+export class WebHooks{
   callbackHeaders: string;
   callbackUri: string;
-  id: string
+  id: string;
   type: string;
 }
 
-export interface IBillingVariables{
+export class BillingVariables{
   key: string;
-  value: string
+  value: string;
 }
 
-export interface IOrderTemplateData{
+export class OrderTemplateData{
   templateDataName: string;
   templateDataValue: string;
 }
 
-export interface IDeliveryOption {
+export class DeliveryOption {
   deliveryMethodCode: string;
   description: string;
   isDefault:boolean;

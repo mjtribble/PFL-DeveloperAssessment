@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { IProduct } from './interfaces';
+import { Product } from './data';
 import { MessageService } from './message.service';
 
 import { Observable } from 'rxjs/Observable';
@@ -19,7 +19,7 @@ export class ProductService {
   ) { }
 
   /** GET products from the server */
-  getProducts (): Observable<IProduct[]> {
+  getProducts (): Observable<Product[]> {
   return this.http.get(this.productsUrl)
     .pipe(
       map(result => result.results.data),

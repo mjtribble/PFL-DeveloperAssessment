@@ -15,6 +15,9 @@ import { MessageService } from './message.service';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { CustomerComponent } from './customer/customer.component';
+import { OrderComponent } from './order/order.component';
+import { OrderItemComponent } from './order-item/order-item.component';
+import { OrderService } from './order.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { CustomerComponent } from './customer/customer.component';
     AppNavbarComponent,
     ProductsComponent,
     MessagesComponent,
-    CustomerComponent
+    CustomerComponent,
+    OrderComponent,
+    OrderItemComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,8 @@ import { CustomerComponent } from './customer/customer.component';
      multi: true
    },
     ProductService,
-    MessageService
+    MessageService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })
