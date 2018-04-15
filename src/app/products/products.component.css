@@ -1,10 +1,5 @@
 /* productssComponent's private CSS styles */
-h2 {
-  font-family: Arial;
-  font-size: 1.5em;
-  margin-left: .5em;
-  margin-top: .5em;
-}
+
 .selected {
   background-color: #CFD8DC !important;
   color: white;
@@ -43,7 +38,7 @@ h2 {
   position: relative;
   top: -3px;
 }
-button.order {
+.badge {
   display: inline-block;
   /* display: inline; */
   font-size: small;

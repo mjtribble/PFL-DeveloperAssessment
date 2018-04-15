@@ -5,9 +5,10 @@ h1 {
   margin-bottom: 0;
 }
 h2 {
-  font-size: 2em;
-  margin-top: 0;
-  padding-top: 0;
+  font-family: Arial;
+  color: #999;
+  margin-left: .5em;
+  margin-top: .5em;
 }
 nav a {
   padding: 5px 10px;

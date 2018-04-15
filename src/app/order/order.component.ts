@@ -18,7 +18,7 @@ export class OrderComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private orderService : OrderService
+    private orderService : OrderService,
     private location: Location
   ) { }
 
