@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { OrderPayload, OrderCustomerData } from '../data';
+import { OrderPayload, OrderCustomerData, OrderItemData } from '../data';
+import { CustomerComponent } from '../customer/customer.component';
 import { OrderService } from '../order.service';
 
 @Component({
@@ -11,10 +12,10 @@ import { OrderService } from '../order.service';
   styleUrls: ['./order.component.css']
 })
 
-export class OrderComponent implements OnInit {
-
-  orders: OrderPayload[];
-  // model = new OrderPayload()
+export class OrderComponent{
+  orders: OrderItemData[];
+  customer: OrderCustomerData;
+  payload: OrderPayload;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,18 +23,27 @@ export class OrderComponent implements OnInit {
     private location: Location
   ) { }
 
-  ngOnInit() {
-  }
 
   submit(order : OrderPayload):void{
     this.orderService.postOrder(order)
       .subscribe(ord => {
-        this.orders.push(ord)
+        this.orders.push(ord);
       })
   }
 
   goBack():void{
-  this.location.back();
+    this.location.back();
   }
+
+  saveCustomer($event) {
+    this.customer = $event;
+  }
+
+  saveItem($event) {
+    this.orders = [$event];
+  }
+
+  get diagnostic1() { return JSON.stringify(this.customer) }
+  get diagnostic2() { return JSON.stringify(this.orders) }
 
 }

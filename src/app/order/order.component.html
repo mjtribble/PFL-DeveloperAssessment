@@ -1,1 +1,6 @@
-<app-customer-form></app-customer-form>
+<!-- TODO: remove this -->
+ORDER CUSTOMER: {{diagnostic1}}
+<app-customer-form (saveEvent)="saveCustomer($event)"></app-customer-form>
+ORDER Item: {{diagnostic2}}
+<app-order-item-form (saveEvent)="saveItem($event)"></app-order-item-form>
+<button (click)="submit()">Submiy</button>

@@ -37,20 +37,20 @@ export class OrderItemData {
 }
 
 export class OrderCustomerData {
-  id: number;
-  firstName: string;
-  lastName: string;
-  companyName: string;
-  address1: string;
-  city: string;
-  state: string;
-  postalCode: number;
-  countryCode: string;
-  email: string;
-  phone: string;
-  orders?: OrderPayload[];
-  orderTotal?: number;
-  address2?: string;
+  public id: number;
+  public firstName: string;
+  public lastName: string;
+  public companyName: string;
+  public address1: string;
+  public city: string;
+  public state: string;
+  public postalCode: number;
+  public countryCode: string;
+  public email: string;
+  public phone: string;
+  public orders?: OrderPayload[];
+  public orderTotal?: number;
+  public address2?: string;
 }
 
 export class OrderShipmentData {

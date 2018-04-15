@@ -1,57 +1,66 @@
 <div class="container">
     <h2>Customer Form</h2>
-    <form>
-      <div class="form-group">
-        <label for="fname">First Name</label>
-        <input type="text" class="form-control" id="firstName" required>
-      </div>
+    <form #customerForm="ngForm">
 
-      <div class="form-group">
-        <label for="lname">Last Name</label>
-        <input type="text" class="form-control" id="lastName" required>
-      </div>
+    <!-- {{diagnostic}} -->
 
-      <div class="form-group">
-        <label for="input">Company Name</label>
-        <input type="text" class="form-control" id="coName" required>
-      </div>
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control" id="fName" [(ngModel)]="customer.firstName" name="firstName" required>
+      TODO: remove this: {{customer.firstName}}
+    </div>
 
-      <div class="form-group">
-        <label for="add1">Address 1</label>
-        <input type="text" class="form-control" id="address1" required>
-      </div>
+    <div class="form-group">
+      <label for="lastNane">Last Name</label>
+      <input type="text" class="form-control" id="lastName" [(ngModel)]="customer.lastName" name="lastName" required>
+    </div>
 
-      <div class="form-group">
-        <label for="add2">Address 2</label>
-        <input type="text" class="form-control" id="address2">
-      </div>
+    <div class="form-group">
+      <label for="CoName">Company Name</label>
+      <input type="text" class="form-control" id="coName" id="coName" [(ngModel)]="customer.companyName" name="coName"required>
+    </div>
 
-      <div class="form-group">
-        <label for="city">City</label>
-        <input type="text" class="form-control" id="city" required>
-      </div>
+    <div class="form-group">
+      <label for="address1">Address 1</label>
+      <input type="text" class="form-control" id="address1" [(ngModel)]="customer.address1" name="address1" required>
+    </div>
 
-      <div class="form-group">
-        <label for="st">State</label>
-        <input type="text" class="form-control" id="state" required>
-      </div>
+    <div class="form-group">
+      <label for="address2">Address 2</label>
+      <input type="text" class="form-control" id="address2" [(ngModel)]="customer.address2" name="address2">
+    </div>
 
-      <div class="form-group">
-        <label for="pc">Postal Code</label>
-        <input type="text" class="form-control" id="postalCode" required>
-      </div>
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" class="form-control" id="city" [(ngModel)]="customer.city" name="city" required>
+    </div>
 
-      <div class="form-group">
-        <label for="cc">Country Code</label>
-        <input type="text" class="form-control" id="countryCode" required>
-      </div>
+    <div class="form-group">
+      <label for="state">State</label>
+      <input type="text" class="form-control" id="state" [(ngModel)]="customer.state" name="state" required>
+    </div>
 
-      <div class="form-group">
-        <label for="phn">Phone</label>
-        <input type="text" class="form-control" id="phone" required>
-      </div>
+    <div class="form-group">
+      <label for="postalCode">Postal Code</label>
+      <input type="text" class="form-control" id="postalCode" [(ngModel)]="customer.postalCode" name="postalCode" required>
+    </div>
 
-      <button type="submit" class="btn btn-success">Submit</button>
+    <div class="form-group">
+      <label for="countryCode">Country Code</label>
+      <input type="text" class="form-control" id="countryCode" [(ngModel)]="customer.countryCode" name="countryCode" required>
+    </div>
 
-    </form>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="text" class="form-control" id="phone" [(ngModel)]="customer.phone" name="phone" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" [(ngModel)]="customer.email" name="email" required>
+    </div>
+
+    <button (click)="onSubmit()">Save Customer</button>
+
+  </form>
 </div>
