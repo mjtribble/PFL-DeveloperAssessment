@@ -1,9 +1,9 @@
-<h2>Printing for Less Products</h2>
+<h2>Products</h2>
 
 <!-- List of Products Links -->
 <ul class="products">
   <li *ngFor="let product of products">
-    <a routerLink="/order-item/{{product.id}}">
+    <a routerLink="/order-item/{{product.productID}}">
       <span class="badge">Order</span> {{product.name}}
     </a>
   </li>

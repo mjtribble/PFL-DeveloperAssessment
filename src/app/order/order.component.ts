@@ -13,7 +13,8 @@ import { OrderService } from '../order.service';
 })
 
 export class OrderComponent{
-  orders: OrderItemData[];
+  orders: OrderPayload[];
+  orderItems: OrderItemData[];
   customer: OrderCustomerData;
   payload: OrderPayload;
 
@@ -24,8 +25,8 @@ export class OrderComponent{
   ) { }
 
 
-  submit(order : OrderPayload):void{
-    this.orderService.postOrder(order)
+  submit():void{
+    this.orderService.postOrder(this.payload)
       .subscribe(ord => {
         this.orders.push(ord);
       })
@@ -40,10 +41,10 @@ export class OrderComponent{
   }
 
   saveItem($event) {
-    this.orders = [$event];
+    this.orderItems = [$event];
   }
 
   get diagnostic1() { return JSON.stringify(this.customer) }
-  get diagnostic2() { return JSON.stringify(this.orders) }
+  get diagnostic2() { return JSON.stringify(this.orderItems) }
 
 }

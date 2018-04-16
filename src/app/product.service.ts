@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Product } from './data';
+import { Product, ProductDetail, HttpData, HttpDataList } from './data';
 import { MessageService } from './message.service';
 
 import { Observable } from 'rxjs/Observable';
@@ -20,33 +20,30 @@ export class ProductService {
 
   /** GET products from the server */
   getProducts (): Observable<Product[]> {
-  return this.http.get(this.productsUrl)
+  return this.http.get<HttpDataList>(this.productsUrl)
     .pipe(
-      map(result => result.results.data),
+      map(result => result.results.data ),
       tap(products => this.log(`fetched products`)),
       catchError(this.handleError('getProducts', []))
     );
   }
 
-  // /** GET hero by id. Return `undefined` when id not found */
-  //  getHeroNo404<Data>(id: number): Observable<Hero> {
-  //    const url = `${this.heroesUrl}/?id=${id}`;
-  //    return this.http.get<Hero[]>(url)
-  //      .pipe(
-  //        map(heroes => heroes[0]), // returns a {0|1} element array
-  //        tap(h => {
-  //          const outcome = h ? `fetched` : `did not find`;
-  //          this.log(`${outcome} hero id=${id}`);
-  //        }),
-  //        catchError(this.handleError<Hero>(`getHero id=${id}`))
-  //      );
-  //  }
+  /** GET product by id. Will 404 if id not found */
+  getProduct(id: number): Observable<any> {
+  const url = `https://testapi.pfl.com/products/${id}?apikey=136085`;
+  return this.http.get<HttpData>(url)
+    .pipe(
+      map(result => result.results.data),
+      // map(result => console.log(result.results.data)),
+      tap( result => this.log(`fetched product id=${result.id}`)),
+      catchError(this.handleError(`getproduct id=${id}`))
+  );
+}
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> =>{
-      //// TODO: send the error to remotelogging infrastructure
-      console.error(error); //log to console instead
 
-      //// TODO: better job of transforming error for user consumption
+      console.error(error);
       this.log(`${operation} failed: ${error.message}`);
 
       // Let the app keep running by returning an empty result.

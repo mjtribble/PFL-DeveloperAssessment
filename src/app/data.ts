@@ -1,23 +1,97 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes } from '@angular/router';
 
+export interface Results{
+  errors: string[];
+  messages: string[];
+  data: ProductDetail;
+}
+
+export interface ResultsList{
+  errors: string[];
+  messages: string[];
+  data: Product[];
+}
+
+export interface HttpDataList{
+  meta: string[];
+  results: ResultsList;
+}
+export interface HttpData{
+  errors: string[];
+  meta: string[];
+  results: Results;
+}
 export class Product {
     id: number;
-    productID: number;
+    sku: string;
+    productID: number ;
     name: string;
     description: string;
     imageURL: string;
-    hasTemplate?: boolean;
-    quantityDefault?: number;
-    shippingDefault?: string;
-    deliveredPrices?: DeliveryOption[];
+    hasTemplate: boolean;
+    quantityDefault: number;
+    quantityMinimum: number;
+    quantityMaximum: number;
+    quantityIncrement: number;
+    shippingMethodDefault: number;
+    deliveredPrices: DeliveryOption[];
+    templateFields: FieldList;
 }
+
+export class ProductDetail {
+    customValues?: string[];
+    deliveredPrices?: string[];
+    description?: string;
+    emailTemplateId?: string;
+    files?: string[];
+    hasTemplate: boolean;
+    id: number;
+    imageURL?: string;
+    images?: string[];
+    lastUpdated?: string;
+    name: string;
+    productFormat?: string;
+    productRestrictionType?: string;
+    productionSpeeds?: string[];
+    quantityDefault?: number;
+    quantityIncrement?: number;
+    quantityMaximum?: number;
+    quantityMinimum?: number;
+    shippingMethodDefault?: string;
+    sku?: string;
+    templateFields?: FieldList;
+}
+
+export class FieldList{
+  fieldlist: FieldItem;
+}
+
+export class FieldItem{
+  field: Field[];
+}
+
+export class Field {
+  required: string;
+  visible: string;
+  type: string;
+  subtype: string;
+  fieldname: string;
+  prompts: Prompt[];
+  htmlfieldname: string;
+}
+
+export class Prompt{
+  language: string;
+  text: string;
+}
+
 
 export class OrderPayload {
     orderNumber: number;
+    partnerOrderReference: string;
     orderCustomer: OrderCustomerData;
     items: OrderItemData[];
-    partnerOrderReference?: string;
     shipments?: OrderShipmentData[];
     payments?: Payments[];
     itemShipments?: ItemShipments[];
@@ -30,14 +104,14 @@ export class OrderItemData {
   productID: number;
   quantity: number;
   itemFile: string;
-  templateData: OrderTemplateData[];
   itemID: number;
+  templateData?: OrderTemplateData[];
   productionDays?: number;
   partnerItemReference?: string;
 }
 
 export class OrderCustomerData {
-  public id: number;
+  public id?: number;
   public firstName: string;
   public lastName: string;
   public companyName: string;
@@ -95,6 +169,11 @@ export class BillingVariables{
 export class OrderTemplateData{
   templateDataName: string;
   templateDataValue: string;
+
+  constructor(name: string, value: string){
+    this.templateDataName = name;
+    this.templateDataValue = value;
+  };
 }
 
 export class DeliveryOption {

@@ -1,16 +1,29 @@
 <div class="container">
-    <h2>Item Form</h2>
-    <form #itemForm="ngForm">
+  <form #itemForm="ngForm">
+  <!-- {{diagnostic}} -->
+  <div *ngIf="productItem">
+    <h2>{{productItem.name}}</h2>
+  </div>
 
-    <!-- {{diagnostic}} -->
+  <div class="form-group">
+    <label for="quantity">Quantity</label>
+    <input type="text" class="form-control" id="quantity" [(ngModel)]="item.quantity" name="quantity" required>
+  </div>
+  <div *ngIf="productItem">
+    <!-- {{productItem.hasTemplate}} -->
+    <div *ngIf="productItem.hasTemplate">
+      <!-- {{productItem.templateFields.fieldlist.field.length}} -->
+      <div *ngIf="productItem.templateFields.fieldlist.field.length">
+        <a *ngFor="let field of productItem.templateFields.fieldlist.field; let i = index">
+          <div class="form-group">
+            <label for="{{field.htmlfieldname}}">{{field.prompt[0].text}}</label>
+            <input type="text" class="form-control" id="{{field.htmlfieldname}}" name="{{field.htmlfieldname}}" required>
+          </div>
+        </a>
+      </div>
 
-    <div class="form-group">
-      <label for="quantity">Quantity</label>
-      <input type="text" class="form-control" id="quantity" [(ngModel)]="item.quantity" name="quantity" required>
-      TODO: remove this: {{item.quantity}}
     </div>
-
-    <button (click)="onSubmit()">Save Item</button>
-
+  </div>
+  <button (click)="onSubmit()">Save Item</button>
   </form>
 </div>

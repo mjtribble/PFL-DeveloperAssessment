@@ -10,3 +10,23 @@ label{
   color: #607D8B;
 
 }
+button {
+  margin-top: 20px;
+  color: #607D8B;
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer; cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+  color: #039be5;
+
+}
+button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
+}

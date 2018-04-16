@@ -13,16 +13,16 @@ export class CustomerComponent {
   customer: OrderCustomerData =
   {
     id: 0,
-    firstName: '',
-    lastName: '',
-    companyName: '',
-    address1: '',
-    city: '',
-    state: '',
-    postalCode: 0,
-    countryCode: '',
-    email: '',
-    phone: ''
+    firstName: 'John',
+    lastName: 'Doe',
+    companyName: 'ACME',
+    address1: '1 Acme Way',
+    city: 'Livingston',
+    state: 'MT',
+    postalCode: 59747,
+    countryCode: 'US',
+    email: 'jdoe@acme.com',
+    phone: '1234567890'
   };
 
   @Output() saveEvent = new EventEmitter<OrderCustomerData>();
