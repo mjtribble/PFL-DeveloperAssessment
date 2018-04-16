@@ -86,7 +86,6 @@ export class Prompt{
   text: string;
 }
 
-
 export class OrderPayload {
     orderNumber: number;
     partnerOrderReference: string;

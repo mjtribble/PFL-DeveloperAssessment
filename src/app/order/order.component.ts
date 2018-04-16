@@ -125,12 +125,10 @@ export class OrderComponent{
 
   saveCustomer($event) {
     this.customer = $event;
-    this.payload.orderCustomer = this.customer;
   }
 
   saveItem($event) {
     this.orderItems = [$event];
-    this.payload.items = this.orderItems;
   }
 
   get diagnostic1() { return JSON.stringify(this.customer) }

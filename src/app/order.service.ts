@@ -40,9 +40,9 @@ export class OrderService {
       };
     }
 
-    /** Log a HeroService message with the MessageService */
+    /** Log an OrderService message with the MessageService */
     private log(message: string){
-      this.messageService.add('HeroService: ' + message );
+      this.messageService.add('OrderService: ' + message );
     }
 
 }
