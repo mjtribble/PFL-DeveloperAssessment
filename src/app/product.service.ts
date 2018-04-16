@@ -40,6 +40,7 @@ export class ProductService {
   );
 }
 
+  /** Catch and print errors */
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> =>{
 

@@ -1,6 +1,8 @@
 <div class="container">
   <form #itemForm="ngForm">
+
   <!-- {{diagnostic}} -->
+
   <div *ngIf="productItem">
     <h2>{{productItem.name}}</h2>
   </div>
@@ -9,10 +11,12 @@
     <label for="quantity">Quantity</label>
     <input type="text" class="form-control" id="quantity" [(ngModel)]="item.quantity" name="quantity" required>
   </div>
+
   <div *ngIf="productItem">
-    <!-- {{productItem.hasTemplate}} -->
+
     <div *ngIf="productItem.hasTemplate">
-      <!-- {{productItem.templateFields.fieldlist.field.length}} -->
+
+      <!-- Dynamic form fields per specific product -->
       <div *ngIf="productItem.templateFields.fieldlist.field.length">
         <a *ngFor="let field of productItem.templateFields.fieldlist.field; let i = index">
           <div class="form-group">
@@ -21,9 +25,10 @@
           </div>
         </a>
       </div>
-
     </div>
   </div>
+
   <button (click)="onSubmit()">Save Item</button>
+
   </form>
 </div>

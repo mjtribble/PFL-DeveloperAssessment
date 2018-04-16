@@ -1,9 +1,12 @@
 <head><title>PFL Order Form</title></head>
-<!-- TODO: remove this -->
-ORDER Item: {{diagnostic2}}
+
+<!-- ORDER Item: {{diagnostic2}} -->
 <button (click)="goBack()">go back</button>
+
 <app-order-item-form (saveEvent)="saveItem($event)"></app-order-item-form>
-ORDER CUSTOMER: {{diagnostic1}}
+
+<!-- ORDER CUSTOMER: {{diagnostic1}} -->
 <app-customer-form (saveEvent)="saveCustomer($event)"></app-customer-form>
+
 <button (click)="submit()">Submit Order</button>
 <button (click)="goBack()">Go Back</button>

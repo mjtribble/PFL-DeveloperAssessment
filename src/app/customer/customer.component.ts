@@ -25,17 +25,15 @@ export class CustomerComponent {
     phone: '1234567890'
   };
 
-  @Output() saveEvent = new EventEmitter<OrderCustomerData>();
-
   constructor(){}
 
-  submitted = false;
+  // This sends the CustomerData to the Parent OrderComponent when saved
+  @Output() saveEvent = new EventEmitter<OrderCustomerData>();
 
   onSubmit() {
-    this.submitted = true;
     this.saveEvent.emit(this.customer);
   }
 
-  // TODO: Remove when finished
+  // debug code
   get diagnostic() { return JSON.stringify(this.customer); }
 }

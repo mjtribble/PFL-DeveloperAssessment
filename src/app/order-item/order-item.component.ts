@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit, AfterViewInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { OrderItemData, ProductDetail, OrderTemplateData } from '../data';
@@ -12,8 +12,7 @@ import { ProductService } from '../product.service'
 
 export class OrderItemComponent implements OnInit, AfterViewInit {
 
-  @Input() productItem : ProductDetail;
-
+  productItem : ProductDetail;
   id = +this.route.snapshot.paramMap.get('id');
 
   item: OrderItemData =
@@ -26,8 +25,6 @@ export class OrderItemComponent implements OnInit, AfterViewInit {
     itemID: this.id
   };
 
-  @Output() saveEvent = new EventEmitter<OrderItemData>();
-
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
@@ -37,22 +34,27 @@ export class OrderItemComponent implements OnInit, AfterViewInit {
     this.getProduct();
   }
 
-
+  // This needs more work, having a Type issue
   ngAfterViewInit():void {
     // if(this.productItem.hasTemplate){
     //   this.addTemplateData();
     // }
   }
 
-  getProduct(): void {
-    this.productService.getProduct(this.id)
-      .subscribe(data => this.productItem = data);
-  }
+  // This sends the OrderItemData to the parent OrderComponent to be saved.
+  @Output() saveEvent = new EventEmitter<OrderItemData>();
 
   onSubmit() {
     this.saveEvent.emit(this.item);
   }
 
+  // This gets a product's detail with the product id
+  getProduct(): void {
+    this.productService.getProduct(this.id)
+      .subscribe(data => this.productItem = data);
+  }
+
+  // This needs more work, having a Type issue with this.productItem
   addTemplateData(): void {
     console.log(this.productItem.templateFields)
     // for (var field of this.productItem.templateFields) {
@@ -63,7 +65,7 @@ export class OrderItemComponent implements OnInit, AfterViewInit {
     // }
   }
 
-  // TODO: Remove when finished
+  // debugging
   get diagnostic() { return JSON.stringify(this.item); }
 
 }

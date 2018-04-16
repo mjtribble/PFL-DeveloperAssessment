@@ -19,25 +19,9 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
   }
 
+  /** Gets a list of products using the product service */
   getProducts() : void {
     this.productService.getProducts()
-    // .subscribe(data => console.log(data));
       .subscribe(products => this.products = products);
   }
-
-  order(): void{
-    //// TODO: load order form
-  }
 }
-
-//   getData(){
-//     return this.http.get(this.apiUrl)
-//   }
-//
-//   getOrders(){
-//     this.getData().subscribe(data => {
-//       console.log(data);
-//       this.data = data
-//     })
-//   }
-// }

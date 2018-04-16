@@ -4,13 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './products/products.component';
 import { OrderComponent } from './order/order.component';
 import { OrderItemComponent } from './order-item/order-item.component';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'order-item/:id', component: OrderComponent },
-  { path: 'dashboard', component: AppComponent },
-  { path: 'order', component: AppComponent },
+  { path: 'order', component: OrderSummaryComponent },
   { path: '', redirectTo: '/products', pathMatch: 'full' }
 ];
 

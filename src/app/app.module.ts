@@ -7,7 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { AuthInterceptor } from './interceptors/auth.service';
-import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ProductsComponent } from './products/products.component';
 import { ProductService } from './product.service';
@@ -18,19 +17,16 @@ import { CustomerComponent } from './customer/customer.component';
 import { OrderComponent } from './order/order.component';
 import { OrderItemComponent } from './order-item/order-item.component';
 import { OrderService } from './order.service';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppNavbarComponent,
     ProductsComponent,
     MessagesComponent,
     CustomerComponent,
     OrderComponent,
     OrderItemComponent,
-    DashboardComponent,
     OrderSummaryComponent
   ],
   imports: [
