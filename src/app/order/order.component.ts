@@ -114,9 +114,7 @@ export class OrderComponent{
     };
 
     this.orderService.postOrder(this.payload)
-      .subscribe(ord => {
-        this.orders.push(ord);
-      })
+      .subscribe()
   }
 
   goBack():void{

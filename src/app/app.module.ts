@@ -18,6 +18,8 @@ import { CustomerComponent } from './customer/customer.component';
 import { OrderComponent } from './order/order.component';
 import { OrderItemComponent } from './order-item/order-item.component';
 import { OrderService } from './order.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { OrderService } from './order.service';
     MessagesComponent,
     CustomerComponent,
     OrderComponent,
-    OrderItemComponent
+    OrderItemComponent,
+    DashboardComponent,
+    OrderSummaryComponent
   ],
   imports: [
     BrowserModule,
